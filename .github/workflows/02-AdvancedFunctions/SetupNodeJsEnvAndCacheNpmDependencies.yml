@@ -1,0 +1,23 @@
+name: Setup Node.js environment and cache npm dependencies
+description: Checkout code-> setup node.js env -> cache its dependencies -> point package.json file
+on:
+  workflow_dispatch:
+
+jobs:
+  setupNodeJsEnvAndCacheNpmDependencies:
+    name: Setup Node.js environment and cache npm dependencies
+    runs-on: ububuntu-latest
+    steps:
+      - name: checkout the code
+         #with or without versions like @v4 or @v4.1.1
+        uses: actions/checkout@v7
+
+      - name: setup node js env and cache its npm dependencies
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: 'npm'
+          cache-dependency-path: .github/workflows/02-AdvancedFunctions/cacheJsProject/package.json
+        
+          
+        
