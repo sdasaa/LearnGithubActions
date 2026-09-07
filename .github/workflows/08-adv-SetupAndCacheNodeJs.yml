@@ -9,7 +9,6 @@ jobs:
     runs-on: ububuntu-latest
     steps:
       - name: checkout the code
-         #with or without versions like @v4 or @v4.1.1
         uses: actions/checkout@v7
 
       - name: setup node js env and cache its npm dependencies
