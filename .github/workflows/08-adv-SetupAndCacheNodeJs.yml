@@ -12,10 +12,14 @@ jobs:
         uses: actions/checkout@v7
 
       - name: setup node js env and cache its npm dependencies
-        uses: actions/setup-node@v7
+        run: | 
+              pwd
+              ls -ltrh
+              
+      - uses: actions/setup-node@v7
         with:
           node-version: 24
           cache: 'npm'
-          cache-dependency-path: demoJsProject/package-lock.json
+          cache-dependency-path: ./demoJsProject/package-lock.json
         
           
