@@ -24,7 +24,9 @@ jobs:
           cache: 'npm'
           cache-dependency-path: demojs/package-lock.json
 
-      - run: npm ci
+      - run: |
+              cd demojs/
+              npm ci
 
       - name: check if cache is restored
         if: steps.restoreNpmCache.outputs.cache-hit == 'true'
