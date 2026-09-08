@@ -13,13 +13,23 @@ jobs:
 
       - name: setup node js env and cache its npm dependencies
         run: | 
-              pwd
+              echo "current directory before cache restore -> $pwd"
               ls -ltrh
               
       - uses: actions/setup-node@v7
+        name: caching npm dependencies
+        id: restoreNpmCache
         with:
           node-version: 24
           cache: 'npm'
           cache-dependency-path: demojs/package-lock.json
+
+      - run: npm ci
+
+      - name: check if cache is restored
+        if: steps.restoreNpmCache.outputs.cache-hit == 'true'
+        run: |
+              echo "cache restored !!"
+              ls -ltrh
         
           
