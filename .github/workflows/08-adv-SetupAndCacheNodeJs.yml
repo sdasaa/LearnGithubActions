@@ -27,6 +27,7 @@ jobs:
       - run: |
               cd demojs/
               npm ci
+              node demo.js
 
       - name: check if cache is restored
         if: steps.restoreNpmCache.outputs.cache-hit == 'true'
