@@ -1,0 +1,22 @@
+name: Try out the parameterized job feature using workflow_dispacth inputs and matrix job too
+
+on:
+  workflow_dispatch:
+    inputs:
+      env:
+        description: test env
+        required: true
+        type: choice
+        options:
+          - QA1
+          - QA2
+        default: QA1
+
+jobs:
+  acceptInputFromWfw:
+    environment: ${{ github.event.inputs.env }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo the input
+        run: |
+              echo ${{ github.event.inputs.env}}
