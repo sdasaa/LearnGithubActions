@@ -20,3 +20,12 @@ jobs:
       - name: echo the input
         run: |
               echo ${{ github.event.inputs.env}}
+  matrixJob:
+    strategy:
+      matrix:
+        foo: [bar1, bar2]
+    runs-on: ubuntu-latest
+    steps:
+      - name: matrix job ${{ matrix.foo }}
+        run: |
+              echo ${{ matrix.foo }}
