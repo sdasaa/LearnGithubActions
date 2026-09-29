@@ -24,8 +24,10 @@ jobs:
     strategy:
       matrix:
         foo: [bar1, bar2]
+        foo2: [bar3, bar4] 
     runs-on: ubuntu-latest
     steps:
-      - name: matrix job ${{ matrix.foo }}
+      - name: matrix job ${{ matrix.foo }} {{ matrix.foo2 }}
         run: |
               echo ${{ matrix.foo }}
+              echo ${{ matrix.foo2 }}
