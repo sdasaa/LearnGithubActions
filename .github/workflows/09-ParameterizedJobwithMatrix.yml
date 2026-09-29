@@ -27,7 +27,7 @@ jobs:
         foo2: [bar3, bar4] 
     runs-on: ubuntu-latest
     steps:
-      - name: matrix job ${{ matrix.foo }} {{ matrix.foo2 }}
+      - name: matrix job ${{ matrix.foo }} - ${{ matrix.foo2 }}
         run: |
               echo ${{ matrix.foo }}
               echo ${{ matrix.foo2 }}
