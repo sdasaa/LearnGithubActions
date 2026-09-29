@@ -29,5 +29,6 @@ jobs:
     steps:
       - name: matrix job ${{ matrix.foo }} - ${{ matrix.foo2 }}
         run: |
+              printenv
               echo ${{ matrix.foo }}
               echo ${{ matrix.foo2 }}
